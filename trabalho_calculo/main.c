@@ -28,15 +28,40 @@ double* retaSec(int grau, double* equacao, double x1, double x2){
     return calculaReta(x1, execEquacao(grau, equacao, x1), x2, execEquacao(grau, equacao, x2));
 }
 
+void printEquacao(int grau, double* equacao){
+    printf("f(x) = ");
+    int index = 0;
+    for(int i = grau; i >= 2; i--){
+        printf("%fx^%d + ", equacao[index], i);
+        index++;
+    }
+    printf("%.20fx + %.20f", equacao[index], equacao[index + 1]);
+}
 
-void printaSecsAproxDe(double x, int grau, double* equacao){
 
+void printaSecsAproxDe(double x, int grau, double* equacao, int max){
+    double aprox = 0.5;
+    while(aprox >= 0.2){
+        double* sec = retaSec(grau, equacao, x, (x + aprox));
+        printEquacao(1, sec);
+        free(sec);
+        printf("\n");
+        aprox -= 0.1;
+    }
+    for(int i = 0; i < max; i++){
+        double* sec = retaSec(grau, equacao, x, (x + aprox));
+        printEquacao(1, sec);
+        free(sec);
+        printf("\n");
+        aprox /= 10;
+    }
 }
 
 
 int main()
 {
-    //double* secante = retaSec()
-    printf("y = %fx + %f\n", equacao[0], equacao[1]);
+    double equacao[] = {1, 0, 0};
+    printaSecsAproxDe(3.766, 2, equacao, 20);
+
     return 0;
 }

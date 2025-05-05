@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1746468796 source:c:\users\1589988\downloads\trabalho-de-calculo-main\trabalho-de-calculo-main\trabalho_calculo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
