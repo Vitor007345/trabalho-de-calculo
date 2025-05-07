@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1746579014 source:c:\users\vitor\desktop\projetos em c\trabalho_calculo\tentando_desenhar_com_c\main.cpp
+	<windows.h>
+	<math.h>
+	<vector>
+	<string>
+	<algorithm>
+	<functional>
+	<float.h>
+	<sstream>
+	<iomanip>
+
