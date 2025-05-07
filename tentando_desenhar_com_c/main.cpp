@@ -7,6 +7,7 @@
 #include <float.h>
 #include <sstream>
 #include <iomanip>
+#include <iostream>
 
 //Feito pelo deepseek-inicio
 const int LARGURA = 800;
@@ -278,13 +279,13 @@ std::function<double(double)> derivada(std::function<double(double)> f){
 }
 
 
+
 int main() {
     MultiFunctionPlotter plotter;
 
     const double valor = 1;
     const auto func = [](double x) {return x*x;};
 
-    //atv3
 
     plotter.addFunction("func", RGB(255, 0, 0), func);
     desenhaSecantesAproxDe(plotter, valor, func);
