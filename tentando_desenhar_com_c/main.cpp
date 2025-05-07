@@ -8,6 +8,7 @@
 #include <sstream>
 #include <iomanip>
 #include <iostream>
+#include <string>
 
 //Feito pelo deepseek-inicio
 const int LARGURA = 800;

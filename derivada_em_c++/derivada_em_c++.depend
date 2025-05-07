@@ -1,8 +1,11 @@
 # depslib dependency file v1.0
-1746577025 source:c:\users\vitor\desktop\projetos em c\trabalho_calculo\derivada_em_c++\main.cpp
+1746649013 source:c:\users\vitor\desktop\projetos em c\trabalho_calculo\derivada_em_c++\main.cpp
 	<iostream>
 	<functional>
 	<vector>
 	<math.h>
 	<float.h>
+	<string>
+	<sstream>
+	<iomanip>
 
