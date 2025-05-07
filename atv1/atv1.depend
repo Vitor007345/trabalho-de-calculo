@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1746652341 source:c:\users\vitor\desktop\projetos em c\trabalho_calculo\atv1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
