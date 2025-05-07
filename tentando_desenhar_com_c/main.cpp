@@ -264,9 +264,17 @@ void desenhaSecantesAproxDe(MultiFunctionPlotter& plotter, double x, std::functi
 }
 
 std::function<double(double)> calculaRetaTangente(double x, std::function<double(double)> func){
-    double aprox = sqrt(DBL_EPSILON) * fmax(fabs(x), 1.0);
+    double aprox = sqrt(DBL_EPSILON) * fmax(fabs(x), 1.0); //aprox de 0
     double x2 = x + aprox;
     return retaSec(func, x, x2);
+}
+
+
+std::function<double(double)> derivada(std::function<double(double)> f){
+    return [f](double x){
+        double h = sqrt(DBL_EPSILON) * fmax(fabs(x), 1.0); //aprox de 0
+        return (f(x + h) - f(x - h))/(2*h);
+    };
 }
 
 
@@ -274,13 +282,14 @@ int main() {
     MultiFunctionPlotter plotter;
 
     const double valor = 1;
-    const auto func = [](double x) {return sqrt(x);};
+    const auto func = [](double x) {return x*x;};
 
     //atv3
 
     plotter.addFunction("func", RGB(255, 0, 0), func);
     desenhaSecantesAproxDe(plotter, valor, func);
     plotter.addFunction("retaTan", RGB(0, 255, 0), calculaRetaTangente(valor, func));
+    plotter.addFunction("derivada", RGB(255, 128, 0), derivada(func));
 
 
 

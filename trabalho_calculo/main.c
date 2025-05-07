@@ -3,6 +3,8 @@
 #include <math.h>
 #include <float.h>
 
+#define _LIN 2
+#define _COL 2
 
 double* calculaReta(double x1, double y1, double x2, double y2){
     double a = (y2-y1)/(x2-x1);
@@ -36,7 +38,7 @@ void printEquacao(int grau, double* equacao){
         printf("%fx^%d + ", equacao[index], i);
         index++;
     }
-    printf("%.20fx + %.20f", equacao[index], equacao[index + 1]);
+    printf("%.2fx + %.2f", equacao[index], equacao[index + 1]);
 }
 
 
@@ -68,14 +70,25 @@ double* calculaRetaTangente(double x, int grau, double* equacao){
     return retaSec(grau, equacao, x, x2);
 }
 
+void leiaPontos(double pontos[][_COL]){
+    for(int i = 0; i < _LIN; i++){
+        printf("\nDigite os valores do ponto%i: ", (i + 1));
+        for(int j = 0; j < _COL; j++){
+            printf("\n%c: ", !j?'x':'y');
+            scanf("%lf", &pontos[i][j]);
+        }
+    }
+}
 
 int main()
 {
-    double equacao[] = {1, 0, 0};
-    //printaSecsAproxDe(2, 2, equacao, 20);
-    double* tangente = calculaRetaTangente(2, 2, equacao);
-    printEquacao(1, tangente);
-    free(tangente);
+
+    double pontos[_LIN][_COL];
+    leiaPontos(pontos);
+    double* reta = calculaReta(pontos[0][0], pontos[0][1], pontos[1][0], pontos[1][1]);
+    printEquacao(1, reta);
+    free(reta);
+
 
     return 0;
 }
